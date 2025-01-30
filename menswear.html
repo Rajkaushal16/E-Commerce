@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Wear - FashionHub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg, #ff4d4d, #2c3e50);
+            color: white;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav .logo img {
+            height: 40px;
+        }
+        nav .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav .nav-links li {
+            margin-left: 20px;
+        }
+        nav .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        nav .nav-links a:hover {
+            background-color: #ff4d4d;
+            color: white;
+            transform: translateY(-3px);
+        }
+        .categories-container {
+            padding: 20px 50px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .categories-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            padding: 15px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px; /* Set a specific height for images */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .product-card p {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 1.2rem;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        .product-card button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .product-card button:hover {
+            background-color: #e74c3c;
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .cartimg{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="logo.jpg" alt="FashionHub Logo"></div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="cartimg">
+                    <li><a href="cart.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="categories-container">
+        <h2>Men's Wear</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1589234217365-08d3e0e5cf42?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Men's Shirt">
+                <h3>Casual Shirt</h3>
+                <p>Comfortable for everyday wear.</p>
+                <div class="price">$29.99</div>
+                <button onclick="addToCart('Casual Shirt', 'https://images.unsplash.com/photo-1589234217365-08d3e0e5cf42?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '$29.99')">Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?q=80&w=1492&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Men's Jacket">
+                <h3>Leather Jacket</h3>
+                <p>Stylish and versatile for any occasion.</p>
+                <div class="price">$149.99</div>
+                <button onclick="addToCart('Leather Jacket', 'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?q=80&w=1492&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', '$149.99')">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://peplosjeans.in/cdn/shop/products/IMG_4227.jpg?v=1708149858&width=1080" alt="Men's Jeans">
+                <h3>Denim Jeans</h3>
+                <p>Classic and durable for everyday wear.</p>
+                <div class="price">$59.99</div>
+                <button onclick="addToCart('Denim Jeans', 'https://peplosjeans.in/cdn/shop/products/IMG_4227.jpg?v=1708149858&width=1080', '$59.99')">Add to Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://seeandwear.com/cdn/shop/files/IMG_6792-PhotoRoom2.jpg?v=1703929253" alt="Men's Shoes">
+                <h3>Leather Shoes</h3>
+                <p>For a polished and sophisticated look.</p>
+                <div class="price">$89.99</div>
+                <button onclick="addToCart('Leather Shoes', 'https://seeandwear.com/cdn/shop/files/IMG_6792-PhotoRoom2.jpg?v=1703929253', '$89.99')">Add to Cart</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/26858810/2024/3/19/038d09b0-220e-488d-8707-d0b6c1b769991710836863241-NOBERO-Graphic-Printed-Oversized-T-shirt-6021710836863167-7.jpg" alt="Men's T-shirt">
+                <h3>Graphic T-Shirt</h3>
+                <p>Fun and casual for everyday wear.</p>
+                <div class="price">$19.99</div>
+                <button onclick="addToCart('Graphic T-Shirt', 'https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/26858810/2024/3/19/038d09b0-220e-488d-8707-d0b6c1b769991710836863241-NOBERO-Graphic-Printed-Oversized-T-shirt-6021710836863167-7.jpg', '$19.99')">Add to Cart</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://mrbutton.in/cdn/shop/files/Mrbutton-17-sep86994.jpg?v=1698392166&width=1080" alt="Men's Blazer">
+                <h3>Classic Blazer</h3>
+                <p>Perfect for formal occasions.</p>
+                <div class="price">$129.99</div>
+                <button onclick="addToCart('Classic Blazer', 'https://mrbutton.in/cdn/shop/files/Mrbutton-17-sep86994.jpg?v=1698392166&width=1080', '$129.99')">Add to Cart</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="https://redtape.com/cdn/shop/files/RWS0556A_1.jpg?v=1735194531" alt="Men's Sweatshirt">
+                <h3>Comfort Sweatshirt</h3>
+                <p>Soft and perfect for lounging.</p>
+                <div class="price">$39.99</div>
+                <button onclick="addToCart('Comfort Sweatshirt', 'https://redtape.com/cdn/shop/files/RWS0556A_1.jpg?v=1735194531', '$39.99')">Add to Cart</button>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="https://maniaclife.com/cdn/shop/files/CREAM_02_3ad7f40b-b538-4eb0-bc6d-e72b89783849.jpg?v=1735640703&width=3000" alt="Men's Hoodie">
+                <h3>Cozy Hoodie</h3>
+                <p>Warm and stylish for cold days.</p>
+                <div class="price">$49.99</div>
+                <button onclick="addToCart('Cozy Hoodie', 'https://maniaclife.com/cdn/shop/files/CREAM_02_3ad7f40b-b538-4eb0-bc6d-e72b89783849.jpg?v=1735640703&width=3000', '$49.99')">Add to Cart</button>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="https://cdn.linenclub.com/media/catalog/product/cache/d8d099ed0f54be45d4eb2c71c1a3b40d/l/c/lcmhc100yd00175-g7_0.jpg" alt="Men's Shorts">
+                <h3>Casual Shorts</h3>
+                <p>Perfect for a sunny day.</p>
+                <div class="price">$24.99</div>
+                <button onclick="addToCart('Casual Shorts', 'https://cdn.linenclub.com/media/catalog/product/cache/d8d099ed0f54be45d4eb2c71c1a3b40d/l/c/lcmhc100yd00175-g7_0.jpg', '$24.99')">Add to Cart</button>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-card">
+                <img src="https://shop.mango.com/assets/rcs/pics/static/T6/fotos/S/67075984_99.jpg?imwidth=2048&imdensity=1&ts=1704963814075" alt="Men's Polo">
+                <h3>Polo Shirt</h3>
+                <p>Classic style for any occasion.</p>
+                <div class="price">$34.99</div>
+                <button onclick="addToCart('Polo Shirt', 'https://shop.mango.com/assets/rcs/pics/static/T6/fotos/S/67075984_99.jpg?imwidth=2048&imdensity=1&ts=1704963814075', '$34.99')">Add to Cart</button>
+            </div>
+            <!-- Product 11 -->
+            <div class="product-card">
+                <img src="https://blackberrys.com/cdn/shop/files/Two_Piece_Dark_Grey_Textured_Formal_Suits_Waves-CPPM1965G3BS24FL-image3.jpg?v=1712215601&width=2000" alt="Men's Suit">
+                <h3>Formal Suit</h3>
+                <p>For important meetings and events.</p>
+                <div class="price">$199.99</div>
+                <button onclick="addToCart('Formal Suit', 'https://blackberrys.com/cdn/shop/files/Two_Piece_Dark_Grey_Textured_Formal_Suits_Waves-CPPM1965G3BS24FL-image3.jpg?v=1712215601&width=2000', '$199.99')">Add to Cart</button>
+            </div>
+            <!-- Product 12 -->
+            <div class="product-card">
+                <img src="https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/31403252/2024/11/15/90e430ac-9766-4e20-a3fc-9bffbaf9f0db1731642520254-XYXX-Men-Solid-IntelliSmooth-Pulse-Relaxed-Sweatpants-848173-2.jpg" alt="Men's Sweatpants">
+                <h3>Relaxed Sweatpants</h3>
+                <p>Comfortable for lounging or jogging.</p>
+                <div class="price">$29.99</div>
+                <button onclick="addToCart('Relaxed Sweatpants', 'https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/31403252/2024/11/15/90e430ac-9766-4e20-a3fc-9bffbaf9f0db1731642520254-XYXX-Men-Solid-IntelliSmooth-Pulse-Relaxed-Sweatpants-848173-2.jpg', '$29.99')">Add to Cart</button>
+            </div>
+            <!-- Product 13 -->
+            <div class="product-card">
+                <img src="https://static2.goldengoose.com/public/Style/ECOMM/GMP00834.P001488-15527-5.jpg" alt="Men's Jacket">
+                <h3>Bomber Jacket</h3>
+                <p>Stylish outerwear for cooler weather.</p>
+                <div class="price">$129.99</div>
+                <button onclick="addToCart('Bomber Jacket', 'https://static2.goldengoose.com/public/Style/ECOMM/GMP00834.P001488-15527-5.jpg', '$129.99')">Add to Cart</button>
+            </div>
+            <!-- Product 14 -->
+            <div class="product-card">
+                <img src="https://www.shoesforcrews.ie/cdn/shop/collections/Winter_Work_Boots_men.jpg?v=1705496634" alt="Men's Boots">
+                <h3>Work Boots</h3>
+                <p>Durable boots for tough conditions.</p>
+                <div class="price">$79.99</div>
+                <button onclick="addToCart('Work Boots', 'https://www.shoesforcrews.ie/cdn/shop/collections/Winter_Work_Boots_men.jpg?v=1705496634', '$79.99')">Add to Cart</button>
+            </div>
+            <!-- Product 15 -->
+            <div class="product-card">
+                <img src="https://cdn.pixabay.com/photo/2017/08/30/01/45/mens-fashion-2691454_960_720.jpg" alt="Men's Hat">
+                <h3>Fedora Hat</h3>
+                <p>Classic accessory to complete your look.</p>
+                <div class="price">$19.99</div>
+                <button onclick="addToCart('Fedora Hat', 'https://cdn.pixabay.com/photo/2017/08/30/01/45/mens-fashion-2691454_960_720.jpg', '$19.99')">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FashionHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+    
+        function addToCart(productName, productImage, productPrice) {
+            // Check if the product already exists in the cart
+            const existingProduct = cart.find(item => item.name === productName);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                // Add new product to the cart
+                cart.push({
+                    name: productName,
+                    image: productImage,
+                    price: parseFloat(productPrice.substring(1)), // Convert price to a number
+                    quantity: 1
+                });
+            }
+    
+            // Save the updated cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} has been added to the cart!`);
+        }
+    </script>
+</body>
+</html>

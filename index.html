@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionHub - Welcome</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            overflow: hidden;
+        }
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .info {
+            flex: 1 1 50%;
+            margin-right: 20px;
+        }
+        .info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #ffdfdf;
+        }
+        .info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            flex: 1 1 40%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffdfdf;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #27ae60;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #2ecc71;
+            transform: translateY(-2px);
+        }
+        .signup-btn {
+            background-color: #2980b9;
+        }
+        .signup-btn:hover {
+            background-color: #3498db;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .toggle-link a {
+            color: #ffdfdf;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Company Information Section -->
+        <div class="info">
+            <h1>Welcome to FashionHub</h1>
+            <p>
+                At FashionHub, we bring you the latest trends and timeless styles. 
+                Our platform connects fashion enthusiasts with designers to create stunning looks.
+            </p>
+            <p>
+                Whether you're looking to redefine your wardrobe or showcase your own creations, FashionHub is here for you.
+            </p>
+        </div>
+
+        <!-- Login & Signup Form -->
+        <div class="form-container">
+            <h2>Login or Sign Up</h2>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <p class="toggle-link">Don't have an account? <a href="#" id="toggleSignup">Sign up here</a></p>
+
+            <form id="signupForm" style="display: none;">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Enter your password" required>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between Login and Signup
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const toggleSignup = document.getElementById('toggleSignup');
+
+        toggleSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Handle Signup
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            if (email && password) {
+                localStorage.setItem(email, password); // Save user to local storage
+                alert('Signup successful! You can now login.');
+                signupForm.reset();
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        // Handle Login
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const storedPassword = localStorage.getItem(email);
+            if (storedPassword && storedPassword === password) {
+                alert('Login successful!');
+                window.location.href = 'home.html'; // Redirect to home page
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
